@@ -1,0 +1,268 @@
+body {
+	color: black;
+	font: 12px/16px 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	-webkit-user-select: none;
+	cursor: default;
+}
+
+section#wrapper {
+	width: 360px;
+	max-height: 600px;
+	padding: 1px;
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+	section#wrapper::-webkit-scrollbar {
+		-webkit-appearance: none;
+		position: absolute;
+		width: 4px;
+	}
+
+	section#wrapper::-webkit-scrollbar-thumb {
+		border-radius: 3px;
+		background-color: #aaa;
+	}
+
+	section#wrapper::-webkit-scrollbar-track {
+		border-radius: 2px;
+		background-color: transparent;
+	}
+
+fieldset {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	overflow: hidden;
+	/*border-top: 1px solid #ccc;*/
+}
+
+fieldset:first-child {
+	margin-top: 3px;
+}
+
+	fieldset legend {
+		position: relative;
+		color: #333;
+		height: 26px;
+		font-size: 14px;
+		line-height: 26px;
+		padding: 0 24px 0 24px;
+	    width: 100%;
+	    border-radius: 2px;
+	    /* background-color: #b0b0b0; */
+	}
+
+	fieldset legend:before {
+		z-index: 50;
+		position: absolute;
+		left: 10px;
+		top: 13px;
+		width: calc(100% - 68px);
+		height: 1px;
+		background-color: #ccc;
+		content: '';
+	}
+
+	fieldset.focused legend {
+		/* color: white; */
+		/* background-color: #333; */
+	}
+
+	fieldset.minimized legend {
+		/*color: #eee;*/
+		/*background-color: #555;*/
+	}
+
+	fieldset legend label {
+		background-color: white;
+		display: inline-block;
+		position: relative;
+		z-index: 100;
+		padding: 0 8px;
+	}
+
+	fieldset legend label b {
+	}
+
+	fieldset legend span {
+		padding-right: 42px;
+	    float: right;
+	    opacity: .88;
+	    font-size: 12px;
+	    line-height: 26px;
+	    color: #ccc;
+	    display: none;
+	}
+
+		fieldset legend span em {
+		    /* opacity: .5; */
+		}
+
+
+ul {
+	width: 360px;
+	list-style: none;
+	padding: 0;
+	margin: 1px 0 6px 0;
+}
+
+	fieldset.minimized ul {
+		/*margin: 0;*/
+	}
+
+	ul li {
+		color: black;
+		position: relative;
+		padding: 3px 20px 3px 34px;
+		margin: 0px 0 0px 0;
+		border-radius: 2px;
+		overflow: hidden;
+	}
+
+	ul li:hover:not(.active),
+	fieldset:not(.focused) ul li:hover {
+		background-color: #e0e0e0 !important;
+		cursor: pointer;
+	}
+
+	ul li:active:not(.active),
+	fieldset:not(.focused) ul li:active {
+		background-color: #ccc !important;
+		cursor: pointer;
+	}
+
+		fieldset:not(.focused) ul li:hover p i,
+		ul li:hover:not(.active) p i {
+			color: black !important;
+			opacity: 0.9;
+		}
+
+		ul li:hover img {
+			/*top: 8px;*/
+		}
+
+		ul li:hover p i
+		ul li:active p i {
+			color: black !important;
+			/* opacity: .5; */
+		}
+
+	ul li:active {
+		background-color: #aaa !important;
+	}
+
+		ul li img {
+			position: absolute;
+			top: 8px;
+			left: 8px;
+			width: 16px;
+			height: 16px;
+			/*opacity: 0.33;*/
+		}
+
+			ul li:hover img,
+			ul li:active img {
+				opacity: 1 !important;
+			}
+
+		fieldset.minimized ul li img {
+			/*opacity: .33;*/
+		}
+
+		ul li .close {
+			display: none;
+			position: absolute;
+			top: 0px;
+			right: 3px;
+			width: 32px;
+			height: 32px;
+			font-size: 21px;
+			line-height: 28px;
+			color: black;
+			font-weight: 300;
+			background-color: transparent;
+			text-align: center;
+			border-radius: 2px;
+		}
+
+			ul li .close:hover {
+				color: white;
+				background-color: #ff0066 !important;
+			}
+
+			ul li.active:hover .close:hover {
+				color: white;
+				background-color: #ff0066;
+			}
+
+			ul li:hover .close,
+			ul li:active .close {
+				display: block;
+			}
+
+			.focused ul li.active:hover .close {
+				color: white;
+				background-color: transparent;
+			}
+
+		ul li p {
+			font-size: 14px;
+			line-height: 22px;
+			width: 100%;
+			margin: 0;
+			padding: 2px 0;
+			overflow: hidden;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			color: #aaa;
+			font-family: Sans-serif;
+			font-weight: 400
+		}
+
+			ul li p b {
+				color: #333;
+				font-weight: 600
+			}
+
+			ul li p i {
+				font-style: normal;
+				font-weight: 500
+			}
+
+		ul li.no-avail p {
+			color: #aaa;
+			/*font-size: 11px;*/
+		}
+
+			ul li:hover:not(.active) .url,
+			ul li:active:not(.active) .url {
+				xdisplay: block;
+				color: white !important;
+			}
+
+	fieldset.focused ul li.active {
+		color: white;
+		background-color: #3366ff !important; /* 3366ff */
+	}
+
+		fieldset.focused ul li.active p b {
+			color: white !important;
+			opacity: 0.95;
+		}
+
+		fieldset.focused ul li.active p i {
+			color: white !important;
+			opacity: 0.7;
+		}
+
+	fieldset.minimized ul li {
+		/*color: #777;*/
+	}
+
+		fieldset.minimized ul li .url {
+			/*color: #bbbbbb;*/
+		}
