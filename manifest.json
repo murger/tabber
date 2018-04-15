@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "Tabber",
 	"version": "1.0",
-	"description": "Tab manager",
+	"description": "Simpler tab management",
 	"icons": {
 		"16": "img/icon16.png",
 		"48": "img/icon48.png",
@@ -17,7 +17,7 @@
 
 	"background": {
 		"scripts": ["js/bg.js"],
-		"persistent": false
+		"persistent": true
 	},
 
 	"permissions": [
