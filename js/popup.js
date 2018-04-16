@@ -18,9 +18,9 @@
 				legend = document.createElement('legend'),
 				ul = document.createElement('ul');
 
-			if (!w.focused) {
-				// continue;
-			}
+			// if (!w.focused) {
+			// 	continue;
+			// }
 
 			// Ignore special cases
 			if (w.type !== 'normal') {
@@ -38,10 +38,15 @@
 				w.incognito ? 'incognito' : ''
 			].join(' ').trim();
 
-			// console.log('Window #' + w.id, w);
+			console.log('Window #' + w.id, w);
 
 			// Generate <legend> text
-			legend.innerHTML = '<label><b>' + w.tabs.length + '</b> tabs</label>' +
+			legend.innerHTML = '<label>' +
+				// '(' + (i + 1) + '/' + windows.length + ')' +
+				'<b>' + w.tabs.length + ' ' +
+				(w.tabs.length === 1 ? 'tab' : 'tabs') + '</b>' +
+				(windows.length > 1 ? ' &mdash; #' + (i + 1) + '' : '') +
+				'</label>' +
 				'<span>' + (i + 1) + '<em>/</em>' + windows.length + '</span>';
 
 			legend.innerHTML += (w.incognito) ? 'incognito ' : ' ';
@@ -118,8 +123,8 @@
 
 				li.onclick = (function (wid, tid) {
 					return function () {
-						chrome.windows.update(Number(wid), { focused: true });
 						chrome.tabs.update(Number(tid), { active: true });
+						chrome.windows.update(Number(wid), { focused: true });
 					};
 				})(w.id, t.id);
 
@@ -145,24 +150,45 @@
 
 				close.className = 'close';
 				close.innerHTML = '&times;';
-
 				close.onclick = (function (li, tid) {
 					return function (e) {
 						e.preventDefault();
 						e.stopPropagation();
-						li.parentNode.removeChild(li);
+						li.className = li.className + ' removed';
+						document.body.style.height = document.body.clientHeight + 'px';
+						// document.body.style.height = (document.body.clientHeight - 30) + 'px';
 						chrome.tabs.remove(Number(tid));
 					};
 				})(li, t.id);
 
 				li.appendChild(close);
-
-				// Append <li> to window <ul>
 				ul.appendChild(li);
 			}
 		}
 	});
 
+	chrome.sessions.getRecentlyClosed(function (sessions) {
+		console.log(sessions);
+	});
+
+	// chrome.sessions.restore();
+
 	document.body.appendChild(frag.firstChild);
 	document.body.style.display = 'block';
+	// setTimeout(function() {
+	// 	list.style.maxHeight = 480 + 'px';
+	// }, 50);
+
+	// Workaround for popup sizing bug
+	var fixSize = function () {
+		if (list.scrollHeight == 0) {
+			return setTimeout(fixSize, 5);
+		}
+
+		if (list.scrollHeight <= 480) {
+			document.body.className = 'short';
+		}
+	};
+
+	fixSize();
 // });

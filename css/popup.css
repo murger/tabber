@@ -1,7 +1,11 @@
 body {
 	display: none;
-	/* width: 360px; */
+	top: 0px;
+	width: 360px;
 	min-width: 360px;
+	/* height: 480px; */
+	/* min-height: 70px; */
+	max-height: 480px;
 	color: black;
 	font: 12px/16px 'Helvetica Neue', Helvetica, Arial, Sans-serif;
 	overflow: hidden;
@@ -9,13 +13,31 @@ body {
 	margin: 0;
 	-webkit-user-select: none;
 	cursor: default;
+	/* transition: height 0.3s; */
+}
+
+body.dynamic {
+}
+
+body.full {
+	height: 480px;
+}
+
+body.short ul li {
+	width: calc(100% - 20px - 34px);
+}
+
+body.short legend label {
+	width: 100%;
 }
 
 section {
-	width: 360px;
-	min-width: 360px;
-	height: 480px;
-	padding: 1px;
+	position: relative;
+	top: 0px;
+	width: 100%;
+	/* max-height: 100%; */
+	height: 100%;
+	max-height: 480px;
 	overflow-x: hidden;
 	overflow-y: auto;
 }
@@ -23,40 +45,41 @@ section {
 	section::-webkit-scrollbar {
 		-webkit-appearance: none;
 		position: absolute;
-		width: 4px;
+		width: 3px;
 	}
 
 	section::-webkit-scrollbar-thumb {
 		border-radius: 8px;
-		background-color: rgba(0, 0, 0, 0.33);
+		background-color: #d8d8d8;
+		background-color: #ccc;
 	}
 
 	section::-webkit-scrollbar-track {
 		border-radius: 8px;
 		background-color: transparent;
+		/* background-color: #f5f5f5; */
 	}
 
 fieldset {
 	padding: 0;
 	margin: 0;
 	border: 0;
+	max-width: 100%;
 	overflow: hidden;
 	/*border-top: 1px solid #ccc;*/
 }
 
 fieldset:first-child {
-	margin-top: 3px;
+	/* margin-top: 4px; */
 }
 
 	fieldset legend {
 		position: relative;
-		color: #333;
-		height: 26px;
-		font-size: 14px;
-		line-height: 26px;
-		padding: 0 24px 0 24px;
-	    width: 100%;
+		width: calc(100% - 18px);
+		padding: 0 24px;
+		padding-left: 0;
 	    border-radius: 2px;
+		/* padding-bottom: 2px; */
 	    /* background-color: #b0b0b0; */
 	}
 
@@ -64,10 +87,15 @@ fieldset:first-child {
 		z-index: 50;
 		position: absolute;
 		left: 10px;
-		top: 13px;
-		width: calc(100% - 68px);
+		left: 6px;
+		top: 16px;
+		width: calc(100% - 10px - 12px - 24px - 32px);
+		width: calc(100% - 6px - 24px);
+		width: 20px;
 		height: 1px;
 		background-color: #ccc;
+		background-color: transparent;
+		/* border-top: 1px solid white; */
 		content: '';
 	}
 
@@ -82,14 +110,35 @@ fieldset:first-child {
 	}
 
 	fieldset legend label {
-		background-color: white;
 		display: inline-block;
 		position: relative;
+		width: calc(100% - 24px - 4px);
+		height: 30px;
+		left: 0px;
+		color: #333;
+		font-size: 12.5px;
+		line-height: 30px;
+		/* left: 2px; */
+		/* top: 1px; */
 		z-index: 100;
+		/* height: 24px; */
 		padding: 0 8px;
+		padding-left: 34px;
+		/* padding-left: 16px; */
+		color: #999;
+		/* color: #999; */
+		/* color: white; */
+		/* background-color: #e5e5e5; */
+		/* border-top-left-radius: 3px; */
+		/* border-bottom-left-radius: 3px; */
+		/* letter-spacing: -1px; */
+		/* background-color: #e0e0e0; */
+		/* background-color: transparent; */
+	    border-radius: 2px;
 	}
 
 	fieldset legend label b {
+		font-weight: 900;
 	}
 
 	fieldset legend span {
@@ -111,8 +160,12 @@ ul {
 	width: 360px;
 	list-style: none;
 	padding: 0;
-	margin: 1px 0 6px 0;
+	margin: 0;
 }
+
+	ul:last-child {
+		margin-bottom: 0;
+	}
 
 	fieldset.minimized ul {
 		/*margin: 0;*/
@@ -122,15 +175,26 @@ ul {
 		width: calc(100% - 20px - 34px - 4px);
 		color: black;
 		position: relative;
-		padding: 3px 20px 3px 34px;
+		padding: 2px 20px 2px 34px;
 		margin: 0px 0 0px 0;
-		border-radius: 4px;
+		border-radius: 3px;
 		overflow: hidden;
+		transition: padding 0.3s;
 	}
+
+	ul li.removed {
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+
+		ul li.removed p {
+			line-height: 0px;
+			padding: 0;
+		}
 
 	ul li:hover:not(.active),
 	fieldset:not(.focused) ul li:hover {
-		background-color: #f0f0f0 !important;
+		background-color: #f5f5f5 !important;
 		cursor: pointer;
 	}
 
@@ -181,7 +245,6 @@ ul {
 		}
 
 		ul li .close {
-			display: none;
 			position: absolute;
 			top: 0px;
 			right: 0px;
@@ -194,6 +257,8 @@ ul {
 			background-color: transparent;
 			text-align: center;
 			border-radius: 2px;
+			opacity: 0;
+			/* transition: opacity 0.2s; */
 		}
 
 			ul li .close:hover {
@@ -208,7 +273,7 @@ ul {
 
 			ul li:hover .close,
 			ul li:active .close {
-				display: block;
+				opacity: 1;
 			}
 
 			.focused ul li.active:hover .close {
@@ -219,7 +284,7 @@ ul {
 		ul li p {
 			font-size: 14px;
 			line-height: 22px;
-			width: calc(100% - 8px);
+			width: calc(100% - 12px);
 			margin: 0;
 			padding: 2px 0;
 			overflow: hidden;
@@ -227,7 +292,8 @@ ul {
 			text-overflow: ellipsis;
 			color: #ccc;
 			font-family: Sans-serif;
-			font-weight: 400
+			font-weight: 400;
+			transition: line-height 0.3s, padding 0.3s;
 		}
 
 			ul li p b {
@@ -258,12 +324,12 @@ ul {
 
 		fieldset.focused ul li.active p b {
 			color: white !important;
-			opacity: 0.95;
+			/* opacity: 0.95; */
 		}
 
 		fieldset.focused ul li.active p i {
 			color: white !important;
-			opacity: 0.7;
+			opacity: 0.75;
 		}
 
 	fieldset.minimized ul li {

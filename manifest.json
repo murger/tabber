@@ -22,8 +22,6 @@
 
 	"permissions": [
 		"tabs",
-		"webNavigation",
-		"bookmarks",
-		"chrome://favicon/"
+		"sessions"
 	]
 }
