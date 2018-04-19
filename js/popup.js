@@ -43,11 +43,12 @@
 			// Generate <legend> text
 			legend.innerHTML = '<label>' +
 				// '(' + (i + 1) + '/' + windows.length + ')' +
-				'<b>' + w.tabs.length + ' ' +
-				(w.tabs.length === 1 ? 'tab' : 'tabs') + '</b>' +
-				(windows.length > 1 ? ' &mdash; #' + (i + 1) + '' : '') +
+				'<b>' + w.tabs.length + '</b> ' +
+				(w.tabs.length === 1 ? 'tab' : 'tabs') +
 				'</label>' +
-				'<span>' + (i + 1) + '<em>/</em>' + windows.length + '</span>';
+				'<span>' +
+				(windows.length > 1 ? '#' + (i + 1) + '' : '') +
+				'</span>';
 
 			legend.innerHTML += (w.incognito) ? 'incognito ' : ' ';
 			//legend.innerHTML += 'tab' + (w.tabs.length > 1 ? 's ' : ' ');
@@ -91,7 +92,6 @@
 					noAvail = t.title.indexOf(t.url + ' is not available') === 0,
 					noTitle = t.title === url,
 					title = (noTitle) ? url : t.title;
-
 				// console.log('Tab #' + t.id, t);
 
 				if (url.substr(-1) === '/') {
@@ -117,9 +117,11 @@
 					path[0] = '/' + path[0];
 				}
 
-				li.innerHTML = (noTitle)
-					? '<p><b>' + url + '</b></p>'
-					: '<p><b>' + host.replace('www.', '') + '</b><i>' + path.join('/') + '</p>';
+				// li.innerHTML = (noTitle)
+				// 	? '<p><b>' + url + '</b></p>'
+				// 	: '<p><b>' + host.replace('www.', '') + '</b><i>' + path.join('/') + '</p>';
+
+				li.innerHTML = '<p><b>' + host.replace('www.', '') + '</b><i>' + path.join('/') + '</p>';
 
 				li.onclick = (function (wid, tid) {
 					return function () {
@@ -131,7 +133,7 @@
 				// Set attributes as class names
 				li.className = [
 					t.status,
-					(noAvail || noTitle || noLoad || failLoad ? 'no-avail' : ''),
+					// (noAvail || noTitle || noLoad || failLoad ? 'no-avail' : ''),
 					(t.pinned ? 'pinned' : ''),
 					(w.focused && t.active ? 'active' : ''),
 					(t.highlighted ? 'active' : '')
