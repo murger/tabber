@@ -1,4 +1,18 @@
-// document.addEventListener('DOMContentLoaded', function () {
+function romanize (num) {
+    if (!+num)
+        return NaN;
+    var digits = String(+num).split(""),
+        key = ["","C","CC","CCC","CD","D","DC","DCC","DCCC","CM",
+               "","X","XX","XXX","XL","L","LX","LXX","LXXX","XC",
+               "","I","II","III","IV","V","VI","VII","VIII","IX"],
+        roman = "",
+        i = 3;
+    while (i--)
+        roman = (key[+digits.pop() + (i * 10)] || "") + roman;
+    return Array(+digits.join("") + 1).join("M") + roman;
+}
+
+document.addEventListener('DOMContentLoaded', function () {
 	// var bg = chrome.extension.getBackgroundPage();
 	var frag = document.createDocumentFragment(),
 		list = document.createElement('section');
@@ -45,10 +59,11 @@
 				// '(' + (i + 1) + '/' + windows.length + ')' +
 				'<b>' + w.tabs.length + '</b> ' +
 				(w.tabs.length === 1 ? 'tab' : 'tabs') +
-				'</label>' +
-				'<span>' +
-				(windows.length > 1 ? '#' + (i + 1) + '' : '') +
-				'</span>';
+				'</label>';
+
+			if (windows.length > 1) {
+				legend.innerHTML += '<span>' + romanize(i + 1) + '</span>';
+			}
 
 			legend.innerHTML += (w.incognito) ? 'incognito ' : ' ';
 			//legend.innerHTML += 'tab' + (w.tabs.length > 1 ? 's ' : ' ');
@@ -176,7 +191,7 @@
 	// chrome.sessions.restore();
 
 	document.body.appendChild(frag.firstChild);
-	document.body.style.display = 'block';
+	// document.body.style.display = 'block';
 	// setTimeout(function() {
 	// 	list.style.maxHeight = 480 + 'px';
 	// }, 50);
@@ -184,13 +199,14 @@
 	// Workaround for popup sizing bug
 	var fixSize = function () {
 		if (list.scrollHeight == 0) {
-			return setTimeout(fixSize, 5);
+			return setTimeout(fixSize, 33);
 		}
 
 		if (list.scrollHeight <= 480) {
 			document.body.className = 'short';
+			document.body.style.height = 'auto';
 		}
 	};
 
-	fixSize();
-// });
+	setTimeout(fixSize, 33);
+});
