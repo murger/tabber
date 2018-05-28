@@ -2,7 +2,7 @@ body {
 	/* display: none; */
 	width: 360px;
 	min-width: 360px;
-	height: 480px;
+	/* height: 480px; */
 	/* min-height: 70px; */
 	max-height: 480px;
 	color: black;
@@ -107,7 +107,6 @@ fieldset:first-child {
 		z-index: 100;
 		position: relative;
 		display: inline-block;
-		margin-left: 34px;
 		color: #333;
 		font-size: 12px;
 		line-height: 24px;
@@ -124,9 +123,13 @@ fieldset:first-child {
 		/* border-top-left-radius: 3px; */
 		/* border-bottom-left-radius: 3px; */
 		/* letter-spacing: -1px; */
-		background-color: #a0a0a0;
+		background-color: #999;
 		/* background-color: transparent; */
 	    border-radius: 3px;
+    	border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+		padding-left: 35px;
+		padding-right: 12px;
 	}
 
 	fieldset legend label b {
@@ -137,13 +140,15 @@ fieldset:first-child {
 		/* padding-left: 6px; */
 		z-index: 50;
 		position: relative;
-		left: -3px;
+		left: -5px;
 		display: inline-block;
+		vertical-align: top;
 		padding: 0 8px;
-		padding-left: 10px;
-	    font-size: 12px;
-	    font-weight: 900;
-		line-height: 24px;
+		padding-top: 1px;
+		padding-left: 12px;
+	    font-size: 11px;
+	    font-weight: 500;
+		line-height: 23px;
 	    color: #999;
 	    border-radius: 3px;
 		border-top-left-radius: 0;
@@ -179,7 +184,7 @@ ul {
 		margin: 0px 0 0px 0;
 		border-radius: 3px;
 		overflow: hidden;
-		transition: padding 0.3s;
+		transition: padding 0.2s;
 	}
 
 	ul li.removed {

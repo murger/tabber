@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				w.incognito ? 'incognito' : ''
 			].join(' ').trim();
 
-			console.log('Window #' + w.id, w);
+			// console.log('Window #' + w.id, w);
 
 			// Generate <legend> text
 			legend.innerHTML = '<label>' +
@@ -172,9 +172,12 @@ document.addEventListener('DOMContentLoaded', function () {
 						e.preventDefault();
 						e.stopPropagation();
 						li.className = li.className + ' removed';
-						document.body.style.height = document.body.clientHeight + 'px';
-						// document.body.style.height = (document.body.clientHeight - 30) + 'px';
 						chrome.tabs.remove(Number(tid));
+						setTimeout(function () {
+							if (list.scrollHeight <= 480) {
+								document.body.className = 'short';
+							}
+						}, 333);
 					};
 				})(li, t.id);
 
@@ -191,12 +194,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	// chrome.sessions.restore();
 
 	document.body.appendChild(frag.firstChild);
-	// document.body.style.display = 'block';
-	// setTimeout(function() {
-	// 	list.style.maxHeight = 480 + 'px';
-	// }, 50);
 
-	// Workaround for popup sizing bug
 	var fixSize = function () {
 		if (list.scrollHeight == 0) {
 			return setTimeout(fixSize, 33);
@@ -204,7 +202,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		if (list.scrollHeight <= 480) {
 			document.body.className = 'short';
-			document.body.style.height = 'auto';
 		}
 	};
 
