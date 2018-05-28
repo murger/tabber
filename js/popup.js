@@ -55,15 +55,15 @@ document.addEventListener('DOMContentLoaded', function () {
 			// console.log('Window #' + w.id, w);
 
 			// Generate <legend> text
-			legend.innerHTML = '<label>' +
+			legend.innerHTML = (windows.length > 1)
+				? '<span>' + romanize(i + 1) + '</span>'
+				: '<span></span>';
+
+			legend.innerHTML += '<label>' +
 				// '(' + (i + 1) + '/' + windows.length + ')' +
 				'<b>' + w.tabs.length + '</b> ' +
 				(w.tabs.length === 1 ? 'tab' : 'tabs') +
 				'</label>';
-
-			if (windows.length > 1) {
-				legend.innerHTML += '<span>' + romanize(i + 1) + '</span>';
-			}
 
 			legend.innerHTML += (w.incognito) ? 'incognito ' : ' ';
 			//legend.innerHTML += 'tab' + (w.tabs.length > 1 ? 's ' : ' ');
@@ -174,7 +174,7 @@ document.addEventListener('DOMContentLoaded', function () {
 						li.className = li.className + ' removed';
 						chrome.tabs.remove(Number(tid));
 						setTimeout(function () {
-							if (list.scrollHeight <= 480) {
+							if (list.scrollHeight <= 540) {
 								document.body.className = 'short';
 							}
 						}, 333);
@@ -200,7 +200,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			return setTimeout(fixSize, 33);
 		}
 
-		if (list.scrollHeight <= 480) {
+		if (list.scrollHeight <= 540) {
 			document.body.className = 'short';
 		}
 	};
