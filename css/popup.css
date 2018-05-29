@@ -1,7 +1,7 @@
 body {
 	/* display: none; */
-	width: 360px;
-	min-width: 360px;
+	width: 340px;
+	min-width: 340px;
 	/* height: 480px; */
 	/* min-height: 70px; */
 	max-height: 540px;
@@ -72,7 +72,7 @@ fieldset:first-child {
 		position: relative;
 		padding: 0;
 	    color: #fff;
-		background-color: #333;
+		background-color: #555;
 		width: calc(100% - 4px);
 		border-radius: 3px;
 	}
@@ -126,13 +126,13 @@ fieldset:first-child {
 		right: 12px;
 		display: inline-block;
 		z-index: 100;
-	   	opacity: 0.85;
+	   	opacity: 0.75;
 		font-size: 12px;
 		line-height: 30px;
 	}
 
 	fieldset legend label b {
-		font-weight: 900;
+		font-weight: 300;
 		padding-left: 8px;
 	}
 
@@ -142,7 +142,7 @@ fieldset:first-child {
 
 
 ul {
-	width: 360px;
+	width: 340px;
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -157,10 +157,10 @@ ul {
 	}
 
 	ul li {
-		width: calc(100% - 20px - 34px - 4px);
+		width: calc(100% - 34px - 4px);
 		color: black;
 		position: relative;
-		padding: 2px 20px 2px 34px;
+		padding: 2px 0 2px 34px;
 		margin: 0px 0 0px 0;
 		/* border-radius: 3px; */
 		overflow: hidden;
@@ -239,10 +239,10 @@ ul {
 			top: 0px;
 			right: 0px;
 			width: 30px;
-			height: 32px;
+			height: 30px;
 			font-size: 19px;
 			line-height: 28px;
-			color: #aaa;
+			color: #333;
 			font-weight: 100;
 			background-color: transparent;
 			text-align: center;
@@ -277,16 +277,26 @@ ul {
 		ul li p {
 			font-size: 14px;
 			line-height: 22px;
-			width: calc(100% - 12px);
+			width: calc(100% - 10px);
 			margin: 0;
 			padding: 2px 0;
 			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;
-			color: #ccc;
+			color: #e0e0e0;
 			font-family: Sans-serif;
 			font-weight: 400;
 			transition: line-height 0.3s, padding 0.3s;
+		}
+
+		ul li:hover p,
+		ul li:active p {
+			color: inherit;
+			width: calc(100% - 32px);
+		}
+
+		ul li.active p {
+			color: inherit;
 		}
 
 			ul li p b {
@@ -321,7 +331,7 @@ ul {
 		}
 
 		fieldset.focused ul li.active p i {
-			color: white !important;
+			/* color: white !important; */
 			opacity: 0.75;
 		}
 
