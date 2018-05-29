@@ -2,14 +2,14 @@
 var updateTabCount = function () {
 	chrome.tabs.query({}, function (tabs) {
 		var count = tabs.length,
-			red = count * 2,
-			green = 200 - red;
+			red = count * 1,
+			blue = 200 - red;
 
 		if (red > 200) { red = 200; }
-		if (green < 0) { green = 0; }
+		if (blue < 0) { blue = 0; }
 
 		chrome.browserAction.setBadgeBackgroundColor({
-			color: [red, green, 0, 255]
+			color: [35, 85, 255, 255]
 		});
 
 		chrome.browserAction.setBadgeText({
