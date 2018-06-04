@@ -6,7 +6,7 @@ body {
 	/* min-height: 70px; */
 	max-height: 540px;
 	color: black;
-	font: 12px/16px Sans-serif, 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+	font: 12px/16px 'Helvetica Neue', Helvetica, Arial, Sans-serif;
 	overflow: hidden;
 	padding: 0;
 	padding-left: 2px;
@@ -133,11 +133,12 @@ fieldset:first-child {
 		z-index: 100;
 	   	opacity: 0.75;
 		font-size: 12px;
+		font-weight: 400;
 		line-height: 30px;
 	}
 
 	fieldset legend label b {
-		font-weight: 300;
+		font-weight: 400;
 		padding-left: 8px;
 	}
 
