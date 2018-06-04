@@ -50,13 +50,11 @@ section {
 
 	section::-webkit-scrollbar-thumb {
 		border-radius: 8px;
-		background-color: #d8d8d8;
-		background-color: #999;
+		background-color: #777;
 	}
 
 	section::-webkit-scrollbar-track {
 		border-radius: 8px;
-		background-color: transparent;
 		background-color: #f0f0f0;
 	}
 
