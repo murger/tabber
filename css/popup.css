@@ -6,11 +6,10 @@ body {
 	/* min-height: 70px; */
 	max-height: 540px;
 	color: black;
-	font: 12px/16px 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+	font: 12px/16px Sans-serif, 'Helvetica Neue', Helvetica, Arial, Sans-serif;
 	overflow: hidden;
 	padding: 0;
-	padding-left: 2px;
-	margin: 0;
+	margin: 0 2px;
 	-webkit-user-select: none;
 	cursor: default;
 	/* transition: height 0.3s; */
@@ -24,11 +23,7 @@ body.full {
 }
 
 body.short ul li {
-	width: calc(100% - 34px - 2px);
-}
-
-body.short fieldset legend {
-	width: calc(100% - 2px);
+	width: calc(100% - 20px - 34px);
 }
 
 section {
@@ -45,17 +40,18 @@ section {
 	section::-webkit-scrollbar {
 		-webkit-appearance: none;
 		position: absolute;
-		width: 3px;
+		width: 10px;
 	}
 
 	section::-webkit-scrollbar-thumb {
-		border-radius: 8px;
-		background-color: #777;
+		border-radius: 0;
+		background-color: #ccc;
+		border-radius: 6px;
 	}
 
 	section::-webkit-scrollbar-track {
-		border-radius: 8px;
-		background-color: #f0f0f0;
+		border-radius: 0;
+		background-color: transparent;
 	}
 
 fieldset {
@@ -72,12 +68,12 @@ fieldset:first-child {
 }
 
 	fieldset legend {
+		width: calc(100% - 2px);
 		position: relative;
 		padding: 0;
-	    color: #fff;
-		background-color: #555;
-		width: calc(100% - 5px);
-		border-radius: 3px;
+	    color: white;
+		background-color: black;
+		border-radius: 6px;
 	}
 
 	fieldset legend:before {
@@ -115,7 +111,7 @@ fieldset:first-child {
 		padding-top: 2px;
 		padding-left: 12px;
 	    font-size: 13px;
-	    font-weight: 500;
+	    font-weight: 600;
 		line-height: 30px;
 		width: 32px;
 		text-align: center;
@@ -126,19 +122,17 @@ fieldset:first-child {
 	fieldset legend label {
 		z-index: 100;
 		position: absolute;
-		right: 12px;
+		right: 16px;
 		display: inline-block;
 		z-index: 100;
-	   	opacity: 0.75;
+		opacity: 0.8;
 		font-size: 12px;
-		font-weight: 400;
 		line-height: 30px;
-		letter-spacing: -0.5px;
 	}
 
 	fieldset legend label b {
-		font-weight: 400;
-		padding-left: 8px;
+		// color: #fff;
+		font-weight: 600;
 	}
 
 		fieldset legend span em {
@@ -147,7 +141,7 @@ fieldset:first-child {
 
 
 ul {
-	width: 340px;
+	width: calc(340px - 10px - 2px);
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -162,15 +156,14 @@ ul {
 	}
 
 	ul li {
-		width: calc(100% - 34px - 5px);
+		width: calc(100% - 34px);
 		color: black;
 		position: relative;
 		padding: 2px 0 2px 34px;
 		margin: 0px 0 0px 0;
-		/* border-radius: 3px; */
+		border-radius: 6px;
 		overflow: hidden;
 		transition: padding 0.2s;
-		border-radius: 3px;
 	}
 
 	ul li.removed {
@@ -185,7 +178,7 @@ ul {
 
 	ul li:hover:not(.active),
 	fieldset:not(.focused) ul li:hover {
-		background-color: #e0e0e0 !important;
+		background-color: #ccc !important;
 		cursor: pointer;
 	}
 
@@ -204,11 +197,18 @@ ul {
 		ul li:active:not(.active) p b,
 		fieldset:not(.focused) ul li:active p b {
 			color: black !important;
-			opacity: 0.9;
+			opacity: 1;
+		}
+
+		ul li:hover:not(.active) p i,
+		fieldset:not(.focused) ul li:hover p i,
+		ul li:active:not(.active) p i,
+		fieldset:not(.focused) ul li:active p i {
+			opacity: 0.8;
 		}
 
 		ul li:hover img {
-			/*top: 8px;*/
+			opacity: 1;
 		}
 
 		ul li:hover p i
@@ -223,11 +223,10 @@ ul {
 
 		ul li img {
 			position: absolute;
-			top: 8px;
+			top: 7px;
 			left: 8px;
 			width: 16px;
 			height: 16px;
-			/*opacity: 0.33;*/
 		}
 
 			ul li:hover img,
@@ -235,8 +234,9 @@ ul {
 				opacity: 1 !important;
 			}
 
-		fieldset.minimized ul li img {
-			/*opacity: .33;*/
+		fieldset.minimized ul li img,
+		ul li:not(.active) img {
+			opacity: 0;
 		}
 
 		ul li .close {
@@ -248,25 +248,20 @@ ul {
 			font-size: 19px;
 			line-height: 28px;
 			color: #333;
-			font-weight: 400;
+			font-weight: 100;
 			background-color: transparent;
 			text-align: center;
-			border-radius: 3px;
-			border-top-left-radius: 0;
-			border-bottom-left-radius: 0;
-			/* border-radius: 2px; */
 			opacity: 0;
-			/* transition: opacity 0.2s; */
 		}
 
 			ul li .close:hover {
 				color: white;
-				background-color: #ff0066 !important;
+				background-color: #ff3366 !important;
 			}
 
 			ul li.active:hover .close:hover {
 				color: white;
-				background-color: #ff0066;
+				background-color: #ff3366;
 			}
 
 			ul li:hover .close,
@@ -288,9 +283,10 @@ ul {
 			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;
-			color: #e0e0e0;
+			color: #d8d8d8;
 			font-family: Sans-serif;
-			font-weight: 400;
+			font-weight: 300;
+			letter-spacing: -.010em;
 			transition: line-height 0.3s, padding 0.3s;
 		}
 
