@@ -40,13 +40,13 @@ section {
 	section::-webkit-scrollbar {
 		-webkit-appearance: none;
 		position: absolute;
-		width: 10px;
+		width: 8px;
 	}
 
 	section::-webkit-scrollbar-thumb {
 		border-radius: 0;
 		background-color: #ccc;
-		border-radius: 6px;
+		border-radius: 4px;
 	}
 
 	section::-webkit-scrollbar-track {
@@ -72,7 +72,7 @@ fieldset:first-child {
 		position: relative;
 		padding: 0;
 	    color: white;
-		background-color: black;
+		background-color: #333;
 		border-radius: 6px;
 	}
 
@@ -104,6 +104,7 @@ fieldset:first-child {
 
 	fieldset legend span {
 		/* padding-left: 6px; */
+		width: 32px;
 		z-index: 50;
 		display: inline-block;
 		vertical-align: top;
@@ -112,8 +113,7 @@ fieldset:first-child {
 		padding-left: 12px;
 	    font-size: 13px;
 	    font-weight: 600;
-		line-height: 30px;
-		width: 32px;
+		line-height: 28px;
 		text-align: center;
 		padding: 0;
 		/* border-radius: 3px; */
@@ -122,16 +122,16 @@ fieldset:first-child {
 	fieldset legend label {
 		z-index: 100;
 		position: absolute;
-		right: 16px;
+		right: 10px;
 		display: inline-block;
 		z-index: 100;
-		opacity: 0.8;
+		color: #e0e0e0;
 		font-size: 12px;
-		line-height: 30px;
+		line-height: 28px;
 	}
 
 	fieldset legend label b {
-		// color: #fff;
+		color: white;
 		font-weight: 600;
 	}
 
@@ -141,7 +141,7 @@ fieldset:first-child {
 
 
 ul {
-	width: calc(340px - 10px - 2px);
+	width: calc(340px - 8px - 2px);
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -157,10 +157,10 @@ ul {
 
 	ul li {
 		width: calc(100% - 34px);
-		color: black;
+		color: #999;
 		position: relative;
-		padding: 2px 0 2px 34px;
-		margin: 0px 0 0px 0;
+		padding: 1px 0 1px 34px;
+		margin: 1px 0 1px 0;
 		border-radius: 6px;
 		overflow: hidden;
 		transition: padding 0.2s;
@@ -178,7 +178,7 @@ ul {
 
 	ul li:hover:not(.active),
 	fieldset:not(.focused) ul li:hover {
-		background-color: #ccc !important;
+		background-color: #f0f0f0 !important;
 		cursor: pointer;
 	}
 
@@ -232,26 +232,29 @@ ul {
 			ul li:hover img,
 			ul li:active img {
 				opacity: 1 !important;
+				filter: none !important;
 			}
 
 		fieldset.minimized ul li img,
 		ul li:not(.active) img {
-			opacity: 0;
+			opacity: 0.65;
+			filter: grayscale(0.5);
 		}
 
 		ul li .close {
 			position: absolute;
 			top: 0px;
 			right: 0px;
-			width: 30px;
-			height: 30px;
+			width: 28px;
+			height: 28px;
 			font-size: 19px;
-			line-height: 28px;
+			line-height: 26px;
 			color: #333;
 			font-weight: 100;
 			background-color: transparent;
 			text-align: center;
 			opacity: 0;
+			border-radius: 6px;
 		}
 
 			ul li .close:hover {
@@ -301,7 +304,7 @@ ul {
 		}
 
 			ul li p b {
-				color: #333;
+				color: #777;
 				font-weight: 600
 			}
 
