@@ -128,10 +128,11 @@ fieldset:first-child {
 		color: #e0e0e0;
 		font-size: 12px;
 		line-height: 28px;
+		font-weight: 500;
 	}
 
 	fieldset legend label b {
-		font-weight: 600;
+		font-weight: inherit;
 	}
 
 		fieldset legend span em {
@@ -239,7 +240,7 @@ ul {
 		fieldset:not(.focused) ul li img,
 		fieldset ul li:not(.active) img {
 			opacity: 1;
-			filter: grayscale(1);
+			/* filter: grayscale(1); */
 		}
 
 		ul li .close {
@@ -282,7 +283,7 @@ ul {
 			}
 
 		ul li p {
-			font-size: 14px;
+			font-size: 13.5px;
 			line-height: 22px;
 			width: calc(100% - 10px);
 			margin: 0;
@@ -309,7 +310,7 @@ ul {
 
 			ul li p b {
 				color: #333;
-				font-weight: 600
+				font-weight: 500
 			}
 
 			ul li p i {
