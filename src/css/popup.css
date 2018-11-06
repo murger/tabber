@@ -1,10 +1,10 @@
 body {
 	/* display: none; */
-	width: 340px;
-	min-width: 340px;
+	width: 320px;
+	min-width: 320px;
 	/* height: 480px; */
 	/* min-height: 70px; */
-	max-height: 540px;
+	max-height: 520px;
 	color: black;
 	font: 12px/16px Sans-serif, 'Helvetica Neue', Helvetica, Arial, Sans-serif;
 	overflow: hidden;
@@ -19,7 +19,7 @@ body.dynamic {
 }
 
 body.full {
-	height: 540px;
+	height: 520px;
 }
 
 body.short ul li {
@@ -32,7 +32,7 @@ section {
 	width: 100%;
 	/* max-height: 100%; */
 	height: 100%;
-	max-height: 540px;
+	max-height: 520px;
 	overflow-x: hidden;
 	overflow-y: auto;
 }
@@ -72,7 +72,7 @@ fieldset:first-child {
 		position: relative;
 		padding: 0;
 	    color: white;
-		background-color: #333;
+		background-color: black;
 		border-radius: 6px;
 	}
 
@@ -111,7 +111,7 @@ fieldset:first-child {
 		padding: 0 8px;
 		padding-top: 2px;
 		padding-left: 12px;
-	    font-size: 13px;
+	    font-size: 14px;
 	    font-weight: 600;
 		line-height: 28px;
 		text-align: center;
@@ -131,7 +131,6 @@ fieldset:first-child {
 	}
 
 	fieldset legend label b {
-		color: white;
 		font-weight: 600;
 	}
 
@@ -141,7 +140,7 @@ fieldset:first-child {
 
 
 ul {
-	width: calc(340px - 8px - 2px);
+	width: calc(320px - 8px - 2px);
 	list-style: none;
 	padding: 0;
 	margin: 0;
@@ -157,7 +156,7 @@ ul {
 
 	ul li {
 		width: calc(100% - 34px);
-		color: #999;
+		color: #333;
 		position: relative;
 		padding: 1px 0 1px 34px;
 		margin: 1px 0 1px 0;
@@ -178,13 +177,15 @@ ul {
 
 	ul li:hover:not(.active),
 	fieldset:not(.focused) ul li:hover {
-		background-color: #f0f0f0 !important;
+		color: white !important;
+		background-color: #3366ff !important;
 		cursor: pointer;
 	}
 
 	ul li:active:not(.active),
 	fieldset:not(.focused) ul li:active {
-		background-color: #aaa !important;
+		color: white !important;
+		background-color: #3366ff !important;
 		cursor: pointer;
 	}
 
@@ -196,7 +197,7 @@ ul {
 		fieldset:not(.focused) ul li:active p i,
 		ul li:active:not(.active) p b,
 		fieldset:not(.focused) ul li:active p b {
-			color: black !important;
+			color: white !important;
 			opacity: 1;
 		}
 
@@ -223,7 +224,7 @@ ul {
 
 		ul li img {
 			position: absolute;
-			top: 7px;
+			top: 6px;
 			left: 8px;
 			width: 16px;
 			height: 16px;
@@ -235,26 +236,29 @@ ul {
 				filter: none !important;
 			}
 
-		fieldset.minimized ul li img,
-		ul li:not(.active) img {
-			opacity: 0.65;
-			filter: grayscale(0.5);
+		fieldset:not(.focused) ul li img,
+		fieldset ul li:not(.active) img {
+			opacity: 1;
+			filter: grayscale(1);
 		}
 
 		ul li .close {
+			z-index: 10;
 			position: absolute;
 			top: 0px;
 			right: 0px;
 			width: 28px;
 			height: 28px;
-			font-size: 19px;
+			font-size: 18px;
 			line-height: 26px;
-			color: #333;
+			color: white;
 			font-weight: 100;
 			background-color: transparent;
 			text-align: center;
 			opacity: 0;
 			border-radius: 6px;
+			border-top-right-radius: 0;
+			border-bottom-right-radius: 0;
 		}
 
 			ul li .close:hover {
@@ -286,9 +290,9 @@ ul {
 			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;
-			color: #d8d8d8;
+			color: transparent;
 			font-family: Sans-serif;
-			font-weight: 300;
+			font-weight: 100;
 			letter-spacing: -.010em;
 			transition: line-height 0.3s, padding 0.3s;
 		}
@@ -299,12 +303,12 @@ ul {
 			width: calc(100% - 32px);
 		}
 
-		ul li.active p {
+		.focused ul li.active p {
 			color: inherit;
 		}
 
 			ul li p b {
-				color: #777;
+				color: #333;
 				font-weight: 600
 			}
 
@@ -326,7 +330,7 @@ ul {
 
 	fieldset.focused ul li.active {
 		color: white;
-		background-color: #3366ff !important; /* 3366ff */
+		background-color: #999 !important; /* 3366ff */
 	}
 
 		fieldset.focused ul li.active p b {

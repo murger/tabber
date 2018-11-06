@@ -136,7 +136,9 @@ document.addEventListener('DOMContentLoaded', function () {
 				// 	? '<p><b>' + url + '</b></p>'
 				// 	: '<p><b>' + host.replace('www.', '') + '</b><i>' + path.join('/') + '</p>';
 
-				li.innerHTML = '<p><b>' + host.replace('www.', '') + '</b><i>' + path.join('/') + '</p>';
+				li.innerHTML = (noTitle)
+					? '<p><b>' + host.replace('www.', '') + '</b><i>' + path.join('/') + '</p>'
+					: '<p><b>' + t.title + '</b></p>'
 
 				li.onclick = (function (wid, tid) {
 					return function () {

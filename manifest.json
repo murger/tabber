@@ -2,24 +2,21 @@
 	"manifest_version": 2,
 	"name": "Tabber",
 	"version": "1.0",
-	"description": "Simpler tab management",
+	"description": "Simple tab management",
 	"icons": {
-		"16": "img/icon16.png",
-		"48": "img/icon48.png",
-		"128": "img/icon128.png"
+		"16": "src/img/icon16.png",
+		"48": "src/img/icon48.png",
+		"128": "src/img/icon128.png"
 	},
-
 	"browser_action": {
-		"default_icon": "img/icon16.png",
+		"default_icon": "src/img/icon16.png",
 		"default_title": "Tabber",
-		"default_popup": "popup.html"
+		"default_popup": "src/popup.html"
 	},
-
 	"background": {
-		"scripts": ["js/bg.js"],
+		"scripts": ["src/js/bg.js"],
 		"persistent": true
 	},
-
 	"permissions": [
 		"tabs",
 		"sessions"

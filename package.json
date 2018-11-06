@@ -1,0 +1,24 @@
+{
+  "name": "tabber",
+  "version": "0.7.0",
+  "description": "Simple tab management",
+  "main": "dist/popup.html",
+	"scripts": {
+		"clean": "rimraf ./dist ./.cache",
+		"bundle": "parcel ./popup.html",
+		"start": "npm run clean && npm run bundle",
+		"build": "npm run clean && parcel build ./popup.html --no-source-maps --detailed-report"
+	},
+  "keywords": [
+    "extension",
+    "chrome"
+  ],
+  "author": "Gürhan Mermer <gmermer@gmail.com>",
+  "license": "AGPL-3.0",
+  "devDependencies": {
+    "cross-env": "^5.2.0",
+    "node-sass": "^4.9.4",
+    "parcel-bundler": "^1.10.3",
+    "rimraf": "^2.6.2"
+  }
+}
