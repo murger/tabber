@@ -176,36 +176,25 @@ ul {
 			padding: 0;
 		}
 
-	ul li:hover:not(.active),
-	fieldset:not(.focused) ul li:hover {
-		color: white !important;
+	ul li:hover {
+		color: white;
 		background-color: #3366ff !important;
 		cursor: pointer;
 	}
 
-	ul li:active:not(.active),
-	fieldset:not(.focused) ul li:active {
-		color: white !important;
+	ul li:active {
+		color: white;
 		background-color: #3366ff !important;
 		cursor: pointer;
 	}
 
-		ul li:hover:not(.active) p i,
-		fieldset:not(.focused) ul li:hover p i,
-		ul li:hover:not(.active) p b,
-		fieldset:not(.focused) ul li:hover p b,
-		ul li:active:not(.active) p i,
-		fieldset:not(.focused) ul li:active p i,
-		ul li:active:not(.active) p b,
-		fieldset:not(.focused) ul li:active p b {
+		ul li:hover p i, ul li:hover p b
+		ul li:active p i, ul li:active p b {
 			color: white !important;
 			opacity: 1;
 		}
 
-		ul li:hover:not(.active) p i,
-		fieldset:not(.focused) ul li:hover p i,
-		ul li:active:not(.active) p i,
-		fieldset:not(.focused) ul li:active p i {
+		ul li:hover p i, ul li:active p i {
 			opacity: 0.8;
 		}
 
@@ -220,7 +209,7 @@ ul {
 		}
 
 	ul li:active {
-		background-color: #aaa !important;
+		background-color: #aaa;
 	}
 
 		ul li img {
@@ -264,22 +253,12 @@ ul {
 
 			ul li .close:hover {
 				color: white;
-				background-color: #ff3366 !important;
-			}
-
-			ul li.active:hover .close:hover {
-				color: white;
-				background-color: #ff3366;
+				background-color: #ff0033 !important;
 			}
 
 			ul li:hover .close,
 			ul li:active .close {
 				opacity: 1;
-			}
-
-			.focused ul li.active:hover .close {
-				color: white;
-				background-color: transparent;
 			}
 
 		ul li p {
@@ -291,7 +270,6 @@ ul {
 			overflow: hidden;
 			white-space: nowrap;
 			text-overflow: ellipsis;
-			color: transparent;
 			font-family: Sans-serif;
 			font-weight: 100;
 			letter-spacing: -.010em;
@@ -309,7 +287,7 @@ ul {
 		}
 
 			ul li p b {
-				color: #333;
+				color: inherit;
 				font-weight: 500
 			}
 
@@ -330,12 +308,10 @@ ul {
 			}
 
 	fieldset.focused ul li.active {
-		color: white;
-		background-color: #999 !important; /* 3366ff */
+		background-color: #ccc; /* 3366ff */
 	}
 
 		fieldset.focused ul li.active p b {
-			color: white !important;
 			/* opacity: 0.95; */
 		}
 
