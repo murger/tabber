@@ -262,8 +262,9 @@ ul {
 			}
 
 		ul li p {
+			height: 22px;
 			font-size: 13.5px;
-			line-height: 22px;
+			line-height: 24px;
 			width: calc(100% - 10px);
 			margin: 0;
 			padding: 2px 0;
