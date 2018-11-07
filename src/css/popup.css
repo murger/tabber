@@ -71,9 +71,10 @@ fieldset:first-child {
 		width: calc(100% - 2px);
 		position: relative;
 		padding: 0;
-	    color: white;
-		background-color: black;
+	    color: black;
+		background-color: transparent;
 		border-radius: 6px;
+		padding-top: 0px;
 	}
 
 	fieldset legend:before {
@@ -119,16 +120,30 @@ fieldset:first-child {
 		/* border-radius: 3px; */
 	}
 
+	fieldset legend span:after{
+		content: '';
+		display: block;
+		position: absolute;
+		top: calc(13px + 0px);
+		left: 34px;
+		width: 260px;
+		height: 2px;
+		background-color: black;
+		opacity: 0.5;
+	}
+
 	fieldset legend label {
 		z-index: 100;
 		position: absolute;
 		right: 10px;
 		display: inline-block;
 		z-index: 100;
-		color: #e0e0e0;
+		color: black;
 		font-size: 12px;
 		line-height: 28px;
-		font-weight: 500;
+		font-weight: 600;
+		background-color: white;
+		padding-left: 10px;
 	}
 
 	fieldset legend label b {
@@ -309,7 +324,7 @@ ul {
 			}
 
 	fieldset.focused ul li.active {
-		background-color: #ccc; /* 3366ff */
+		background-color: #e0e0e0; /* 3366ff */
 	}
 
 		fieldset.focused ul li.active p b {
