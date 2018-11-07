@@ -51,7 +51,7 @@ section {
 
 	section::-webkit-scrollbar-track {
 		border-radius: 0;
-		background-color: #e0e0e0;
+		background-color: transparent;
 	}
 
 fieldset {
