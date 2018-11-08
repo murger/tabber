@@ -170,15 +170,15 @@ chrome.windows.getAll({ populate: true }, function (windows) {
 			close.innerHTML = '&times;';
 			close.onclick = (function (li, tid) {
 				return function (e) {
+					let list = li.parentElement,
+						legend = list.previousElementSibling,
+						count = legend.lastElementChild.firstElementChild;
+
 					e.preventDefault();
 					e.stopPropagation();
-					li.className = li.className + ' removed';
+					li.remove();
+					count.innerText = list.childElementCount;
 					chrome.tabs.remove(Number(tid));
-					setTimeout(function () {
-						if (list.scrollHeight <= 540) {
-							document.body.className = 'short';
-						}
-					}, 333);
 				};
 			})(li, t.id);
 

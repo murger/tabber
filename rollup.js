@@ -23,3 +23,5 @@ rollup.rollup({
         file: 'dist/popup.js'
     });
 });
+
+console.log('Built bg.js & popup.js');
