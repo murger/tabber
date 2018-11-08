@@ -4,12 +4,12 @@
 	"version": "1.0",
 	"description": "Simple tab management",
 	"icons": {
-		"16": "src/img/icon16.png",
-		"48": "src/img/icon48.png",
-		"128": "src/img/icon128.png"
+		"16": "icons/icon16.png",
+		"48": "icons/icon48.png",
+		"128": "icons/icon128.png"
 	},
 	"browser_action": {
-		"default_icon": "src/img/icon16.png",
+		"default_icon": "icons/icon16.png",
 		"default_title": "Tabber",
 		"default_popup": "dist/popup.html"
 	},
