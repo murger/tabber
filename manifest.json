@@ -11,10 +11,10 @@
 	"browser_action": {
 		"default_icon": "src/img/icon16.png",
 		"default_title": "Tabber",
-		"default_popup": "src/popup.html"
+		"default_popup": "dist/popup.html"
 	},
 	"background": {
-		"scripts": ["src/js/bg.js"],
+		"scripts": ["dist/bg.js"],
 		"persistent": true
 	},
 	"permissions": [
