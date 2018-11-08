@@ -17,7 +17,6 @@
     "clean": "rimraf dist",
     "build:js": "node rollup.js",
     "build:css": "node-sass src/sass -o dist/css",
-    "build:fonts": "cpx 'src/fonts/*.{otf,ttf,woff,woff2}' dist/css/fonts",
     "build:html": "cpx 'src/*.html' dist",
     "build": "npm-run-all clean build:*",
     "watch": "rerun-script",
