@@ -1,10 +1,12 @@
-$height: calc((28px + 1px) * 18);
+$maxrows: 16;
+$rowheight: 28px;
+$maxheight: calc((#{$rowheight} + 1px) * #{$maxrows});
 $scrollbar-width: 4px;
 
 body {
 	width: 320px;
 	min-width: 320px;
-	max-height: $height;
+	max-height: $maxheight;
 	color: black;
 	font: 12px/16px Sans-serif, 'Helvetica Neue', Helvetica, Arial, Sans-serif;
 	overflow: hidden;
@@ -19,7 +21,7 @@ section {
 	top: 0px;
 	width: 100%;
 	height: 100%;
-	max-height: $height;
+	max-height: $maxheight;
 	overflow-x: hidden;
 	overflow-y: auto;
 
@@ -54,6 +56,7 @@ fieldset {
 		background-color: transparent;
 		border-radius: 6px;
 		padding-top: 0px;
+		margin-bottom: 1px;
 
 		span {
 			width: 32px;
@@ -93,121 +96,87 @@ fieldset {
 			font-weight: 600;
 			background-color: white;
 			padding-left: 8px;
-
-			b {
-				font-weight: inherit;
-			}
 		}
 	}
 
 	&.focused ul li.active {
 		background-color: #d8d8d8;
 	}
-}
 
-ul {
-	width: calc(320px - #{$scrollbar-width} - 2px);
-	list-style: none;
-	padding: 0;
-	margin: 0;
+	ul {
+		width: calc(320px - #{$scrollbar-width} - 2px);
+		list-style: none;
+		padding: 0;
+		margin: 0;
 
-	&:last-child {
-		margin-bottom: 0;
-	}
-
-	li {
-		width: calc(100% - 34px);
-		color: #333;
-		position: relative;
-		padding: 1px 0 1px 34px;
-		margin: 1px 0 1px 0;
-		border-radius: 6px;
-		overflow: hidden;
-
-		img {
-			position: absolute;
-			top: 6px;
-			left: 8px;
-			width: 16px;
-			height: 16px;
-		}
-
-		p {
-			height: 22px;
-			font-size: 13.5px;
-			line-height: 24px;
-			width: calc(100% - 10px);
-			margin: 0;
-			padding: 2px 0;
+		li {
+			width: calc(100% - 34px);
+			color: #333;
+			position: relative;
+			padding: 1px 0 1px 34px;
+			margin: 1px 0 1px 0;
+			border-radius: 6px;
 			overflow: hidden;
-			white-space: nowrap;
-			text-overflow: ellipsis;
-			font-family: Sans-serif;
-			font-weight: 100;
-			letter-spacing: -.010em;
-			transition: line-height 0.3s, padding 0.3s;
 
-			b {
-				color: inherit;
-				font-weight: 500
+			&:last-child {
+				margin-bottom: 0;
 			}
 
-			i {
-				font-style: normal;
-				font-weight: 500
-			}
-		}
+			&:hover, &:active {
+				color: white;
+				background-color: #3366ff !important;
+				cursor: pointer;
 
-		&:hover, &:active {
-			color: white;
-			background-color: #3366ff !important;
-			cursor: pointer;
-
-			.close {
-				opacity: 1;
-			}
-
-			p {
-				width: calc(100% - 28px - 8px);
-
-				i, b {
-					color: white !important;
+				.close {
 					opacity: 1;
 				}
 			}
-		}
 
-		.close {
-			z-index: 10;
-			position: absolute;
-			top: 0px;
-			right: 0px;
-			width: 28px;
-			height: 28px;
-			font-size: 18px;
-			line-height: 26px;
-			color: white;
-			font-weight: 100;
-			text-align: center;
-			opacity: 0;
-			border-radius: 6px;
-			border-top-right-radius: 0;
-			border-bottom-right-radius: 0;
+			img {
+				position: absolute;
+				top: 6px;
+				left: 8px;
+				width: 16px;
+				height: 16px;
+			}
 
-			&:hover {
+			p {
+				overflow: hidden;
+				width: calc(100% - 28px - 8px);
+				height: 22px;
+				margin: 0;
+				padding: 2px 0;
+				font-family: Sans-serif;
+				font-size: 13.5px;
+				line-height: 24px;
+				font-weight: 500;
+				letter-spacing: -.010em;
+				white-space: nowrap;
+				text-overflow: ellipsis;
+			}
+
+			.close {
+				z-index: 10;
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				width: 28px;
+				height: 28px;
+				font-size: 18px;
+				line-height: 26px;
 				color: white;
-				background-color: #ff0033 !important;
+				font-weight: 100;
+				text-align: center;
+				opacity: 0;
+				border-radius: 6px;
+				border-top-right-radius: 0;
+				border-bottom-right-radius: 0;
+
+				&:hover {
+					color: white;
+					background-color: #ff0033 !important;
+				}
 			}
 		}
 	}
-
-	ul li:active {
-		background-color: #aaa;
-	}
-
-		ul li:hover p,
-		ul li:active p {
-			color: inherit;
-			width: calc(100% - 32px);
-		}
 }
