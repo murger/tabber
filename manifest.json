@@ -11,7 +11,7 @@
 	"browser_action": {
 		"default_icon": "icons/icon16.png",
 		"default_title": "Tabber",
-		"default_popup": "dist/popup.html"
+		"default_popup": "dist/ext.html"
 	},
 	"background": {
 		"scripts": ["dist/bg.js"],
