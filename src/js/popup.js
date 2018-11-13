@@ -1,5 +1,5 @@
 // Convert numbers to roman numerals
-const romanise = function (no) {
+const romanise = (no) => {
     if (!+no) {
 		return NaN;
 	}
@@ -19,7 +19,7 @@ const romanise = function (no) {
 }
 
 // Check if an element has a class
-const hasClass = function (el, cssClass) {
+const hasClass = (el, cssClass) => {
 	return (el.className) &&
 		new RegExp("(^|\\s)" + cssClass + "(\\s|$)").test(el.className);
 }
