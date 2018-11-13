@@ -1,4 +1,5 @@
-const rollup = require('rollup'),
+const emojic = require('emojic'),
+    rollup = require('rollup'),
     babel = require('rollup-plugin-babel'),
     plugins = [
         babel({ exclude: 'node_modules/**' })
@@ -24,4 +25,4 @@ rollup.rollup({
     });
 });
 
-console.log('Built bg.js & popup.js');
+console.log(emojic.dart + ' Built JS files');
