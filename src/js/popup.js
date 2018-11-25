@@ -65,7 +65,7 @@ chrome.windows.getAll({ populate: true }, windows => {
 		// console.log('Window #' + w.id, w);
 
 		// Window title
-		span.innerText = (windows.length > 1) ? romanise(i + 1) : '';
+		span.innerText = romanise(i + 1);
 		legend.appendChild(span);
 
 		// Tab count
