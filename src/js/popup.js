@@ -39,7 +39,8 @@ chrome.windows.getAll({ populate: true }, windows => {
 			legend = document.createElement('legend'),
 			ul = document.createElement('ul'),
 			span = document.createElement('span'),
-			label = document.createElement('label');
+			label = document.createElement('label'),
+			count = document.createElement('i');
 
 		// Only active window
 		// if (!w.focused) {
@@ -69,8 +70,10 @@ chrome.windows.getAll({ populate: true }, windows => {
 		legend.appendChild(span);
 
 		// Tab count
-		label.innerText = w.tabs.length;
-		label.innerText += (windows.length > 1) ? ' tabs' : ' tab';
+		count.innerText = w.tabs.length;
+		label.appendChild(count);
+
+		label.innerHTML += (windows.length > 1) ? ' tabs' : ' tab';
 		legend.appendChild(label);
 
 		// Append this window
