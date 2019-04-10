@@ -1,11 +1,12 @@
+$width: 360px;
 $maxrows: 18;
 $rowheight: 28px;
 $maxheight: calc((#{$rowheight} + 1px) * #{$maxrows});
 $scrollbar-width: 4px;
 
 body {
-	width: 320px;
-	min-width: 320px;
+	width: $width;
+	min-width: $width;
 	max-height: $maxheight;
 	color: black;
 	font: 12px/16px Sans-serif, 'Helvetica Neue', Helvetica, Arial, Sans-serif;
@@ -108,7 +109,7 @@ fieldset {
 	}
 
 	ul {
-		width: calc(320px - #{$scrollbar-width} - 2px);
+		width: calc(#{$width} - #{$scrollbar-width} - 2px);
 		list-style: none;
 		padding: 0;
 		margin: 0;
