@@ -130,6 +130,7 @@ chrome.windows.getAll({ populate: true }, windows => {
 				return () => {
 					chrome.tabs.update(Number(tid), { active: true });
 					chrome.windows.update(Number(wid), { focused: true });
+					window.close();
 				};
 			})(w.id, t.id);
 
