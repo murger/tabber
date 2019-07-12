@@ -10,7 +10,7 @@ var updateTabCount = function () {
 
 		chrome.browserAction.setBadgeBackgroundColor({
 			// color: [35, 85, 255, 255]
-			color: [51, 102, 255, 255]
+			color: [76, 76, 220, 255]
 		});
 
 		chrome.browserAction.setBadgeText({

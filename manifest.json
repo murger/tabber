@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "Tabber",
-	"version": "1.0",
+	"version": "1.3",
 	"description": "Simple tab management",
 	"icons": {
 		"16": "icons/icon16.png",
@@ -18,7 +18,6 @@
 		"persistent": true
 	},
 	"permissions": [
-		"tabs",
-		"sessions"
+		"tabs"
 	]
 }
