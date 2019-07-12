@@ -4,11 +4,10 @@ $rowheight: 30px;
 $maxheight: calc(#{$rowheight} * #{$maxrows});
 $scrollbar-width: 5px;
 
-$black: #3a3a3a;
-$gray: #dedede;
-$darkgray: #7c7c7c;
-$blue: #4c4cdc;
-$red: #dc004c;
+$black: #333;
+$gray: #ccc;
+$blue: #3366cc;
+$red: #cc0033;
 
 body {
 	width: $width;
@@ -39,7 +38,7 @@ section {
 	}
 
 	&::-webkit-scrollbar-thumb {
-		background-color: $darkgray;
+		background-color: $black;
 	}
 
 	&::-webkit-scrollbar-track {
