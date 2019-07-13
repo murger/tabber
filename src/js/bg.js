@@ -1,13 +1,11 @@
 // Count the number of tabs
 var updateTabCount = function () {
 	chrome.tabs.query({}, function (tabs) {
-		chrome.browserAction.setBadgeBackgroundColor({
-			color: [51, 102, 204, 255]
-		});
+		var count = tabs.length,
+			color = [51, 102, 204, 255];
 
-		chrome.browserAction.setBadgeText({
-			text: String(count)
-		});
+		chrome.browserAction.setBadgeBackgroundColor({ color: color });
+		chrome.browserAction.setBadgeText({ text: String(count) });
 	});
 };
 
