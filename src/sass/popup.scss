@@ -2,7 +2,7 @@ $width: 360px;
 $maxrows: 18;
 $rowheight: 30px;
 $maxheight: calc(#{$rowheight} * #{$maxrows});
-$scrollbar-width: 5px;
+$sbarwidth: 5px;
 
 $black: #333;
 $gray: #ccc;
@@ -31,10 +31,14 @@ section {
 	overflow-x: hidden;
 	overflow-y: auto;
 
+	&.has-scrollbars ul {
+		width: calc(#{$width} - #{$sbarwidth});
+	}
+
 	&::-webkit-scrollbar {
 		-webkit-appearance: none;
 		position: absolute;
-		width: $scrollbar-width;
+		width: $sbarwidth;
 	}
 
 	&::-webkit-scrollbar-thumb {
@@ -94,19 +98,21 @@ fieldset {
 	}
 
 	ul {
-		width: calc(#{$width} - #{$scrollbar-width});
+		width: $width;
 		list-style: none;
 		padding: 0;
 		margin: 0;
+		transition: width 0.2s ease;
 
 		li {
-			width: calc(100% - 34px);
+			width: 100%;
 			color: $black;
 			position: relative;
 			padding: 0;
 			padding-left: 34px;
 			margin: 0;
 			overflow: hidden;
+			box-sizing: border-box;
 
 			&:last-child {
 				margin-bottom: 0;

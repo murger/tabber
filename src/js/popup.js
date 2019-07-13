@@ -1,28 +1,35 @@
 // Convert numbers to roman numerals
 const romanise = (no) => {
-    if (!+no) {
+  if (!+no) {
 		return NaN;
 	}
 
-    var digits = String(+no).split(''),
-        key = ['', 'C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM',
-            	'', 'X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC',
-            	'', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'],
-        result = '',
+	var digits = String(+no).split(''),
+		key = ['', 'C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM',
+					'', 'X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC',
+					'', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'],
+		result = '',
 		i = 3;
 
-    while (i--) {
+	while (i--) {
 		result = (key[+digits.pop() + (i * 10)] || '') + result;
 	}
 
-    return Array(+digits.join('') + 1).join('M') + result;
-}
+  return Array(+digits.join('') + 1).join('M') + result;
+};
 
 // Check if an element has a class
 const hasClass = (el, cssClass) => {
 	return (el.className) &&
 		new RegExp("(^|\\s)" + cssClass + "(\\s|$)").test(el.className);
-}
+};
+
+const toggleScrollbarClass = () => {
+	setTimeout(() => {
+		list.className = (list.scrollHeight > 540) ? 'has-scrollbars' : '';
+		console.log(list.scrollHeight, list.className);
+	}, 5);
+};
 
 // let bg = chrome.extension.getBackgroundPage();
 let frag = document.createDocumentFragment(),
@@ -147,6 +154,7 @@ chrome.windows.getAll({ populate: true }, windows => {
 					e.stopPropagation();
 					count.innerText = list.childElementCount;
 					chrome.tabs.remove(Number(tid));
+					toggleScrollbarClass();
 				};
 			})(li, t.id);
 
@@ -156,6 +164,8 @@ chrome.windows.getAll({ populate: true }, windows => {
 		}
 	}
 });
+
+toggleScrollbarClass();
 
 // chrome.sessions.restore();
 // chrome.sessions.getRecentlyClosed(function (sessions) {
