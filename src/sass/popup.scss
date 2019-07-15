@@ -1,5 +1,5 @@
 $width: 360px;
-$maxrows: 18;
+$maxrows: 16;
 $rowheight: 30px;
 $maxheight: calc(#{$rowheight} * #{$maxrows});
 $sbarwidth: 5px;
@@ -55,14 +55,15 @@ fieldset {
 	margin: 0;
 	border: 0;
 	max-width: 100%;
-	overflow: hidden;
 
 	legend {
+		z-index: 10;
+		position: sticky;
+		top: 0px;
 		width: 100%;
-		position: relative;
 		padding: 0;
 		color: white;
-		background-color: $black;
+		background-color: rgba(0, 0, 0, 0.8);
 
 		span {
 			width: 32px;

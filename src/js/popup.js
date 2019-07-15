@@ -26,7 +26,7 @@ const hasClass = (el, cssClass) => {
 
 const toggleScrollbarClass = () => {
 	setTimeout(() => {
-		list.className = (list.scrollHeight > 540) ? 'has-scrollbars' : '';
+		list.className = (list.scrollHeight > 480) ? 'has-scrollbars' : '';
 		console.log(list.scrollHeight, list.className);
 	}, 5);
 };
@@ -80,7 +80,7 @@ chrome.windows.getAll({ populate: true }, windows => {
 		count.innerText = w.tabs.length;
 		label.appendChild(count);
 
-		label.innerHTML += (windows.length > 1) ? ' tabs' : ' tab';
+		label.innerHTML += (w.tabs.length > 1) ? ' tabs' : ' tab';
 		legend.appendChild(label);
 
 		// Append this window
