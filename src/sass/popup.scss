@@ -1,10 +1,8 @@
 $width: 360px;
-$maxrows: 16;
 $rowheight: 30px;
-$maxheight: calc(#{$rowheight} * #{$maxrows});
-$sbarwidth: 5px;
+$maxheight: calc(var(--maxrows) * #{$rowheight});
+$sbarwidth: 3px;
 
-$black: #333;
 $gray: #ccc;
 $blue: #3366cc;
 $red: #cc0033;
@@ -42,7 +40,7 @@ section {
 	}
 
 	&::-webkit-scrollbar-thumb {
-		background-color: $black;
+		background-color: #333;
 	}
 
 	&::-webkit-scrollbar-track {
@@ -72,7 +70,7 @@ fieldset {
 			vertical-align: top;
 			padding: 0;
 			font-size: 14px;
-			font-weight: 600;
+			font-weight: 900;
 			line-height: $rowheight;
 			text-align: center;
 		}
@@ -107,7 +105,7 @@ fieldset {
 
 		li {
 			width: 100%;
-			color: $black;
+			color: black;
 			position: relative;
 			padding: 0;
 			padding-left: 34px;

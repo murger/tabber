@@ -24,6 +24,10 @@ const hasClass = (el, cssClass) => {
 		new RegExp("(^|\\s)" + cssClass + "(\\s|$)").test(el.className);
 };
 
+let maxRows = 14;
+
+document.documentElement.style.setProperty('--maxrows', maxRows);
+
 const toggleScrollbarClass = () => {
 	setTimeout(() => {
 		list.className = (list.scrollHeight > 480) ? 'has-scrollbars' : '';
