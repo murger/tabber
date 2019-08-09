@@ -24,13 +24,14 @@ const hasClass = (el, cssClass) => {
 		new RegExp("(^|\\s)" + cssClass + "(\\s|$)").test(el.className);
 };
 
-let maxRows = 14;
+let rowHeight = 30,
+	maxRows = 14 + 1;
 
 document.documentElement.style.setProperty('--maxrows', maxRows);
 
 const toggleScrollbarClass = () => {
 	setTimeout(() => {
-		list.className = (list.scrollHeight > 480) ? 'has-scrollbars' : '';
+		list.className = (list.scrollHeight > maxRows * rowHeight) ? 'has-scrollbars' : '';
 		console.log(list.scrollHeight, list.className);
 	}, 5);
 };
@@ -159,6 +160,7 @@ chrome.windows.getAll({ populate: true }, windows => {
 					count.innerText = list.childElementCount;
 					chrome.tabs.remove(Number(tid));
 					toggleScrollbarClass();
+					// TODO: remove window if no tabs left
 				};
 			})(li, t.id);
 
