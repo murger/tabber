@@ -25,7 +25,7 @@ const hasClass = (el, cssClass) => {
 };
 
 let rowHeight = 30,
-	maxRows = 14 + 1;
+	maxRows = 18 + 1;
 
 document.documentElement.style.setProperty('--maxrows', maxRows);
 
