@@ -4,12 +4,12 @@
 	"version": "1.3",
 	"description": "Simple tab management",
 	"icons": {
-		"16": "icons/icon16.png",
-		"48": "icons/icon48.png",
-		"128": "icons/icon128.png"
+		"16": "icons/iconx16.png",
+		"48": "icons/iconx48.png",
+		"128": "icons/iconx128.png"
 	},
 	"browser_action": {
-		"default_icon": "icons/icon16.png",
+		"default_icon": "icons/iconx16.png",
 		"default_title": "Tabber",
 		"default_popup": "dist/ext.html"
 	},
@@ -19,5 +19,15 @@
 	},
 	"permissions": [
 		"tabs"
-	]
+	],
+	"commands": {
+		"_execute_browser_action": {
+			"suggested_key": {
+				"windows": "Ctrl+E",
+				"mac": "Command+E",
+				"chromeos": "Ctrl+E",
+				"linux": "Ctrl+E"
+			}
+		}
+	}
 }
