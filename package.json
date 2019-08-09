@@ -1,6 +1,6 @@
 {
   "name": "tabber",
-  "version": "0.7.0",
+  "version": "1.4.0",
   "description": "Simple tab management",
   "main": "dist/popup.html",
   "keywords": [
