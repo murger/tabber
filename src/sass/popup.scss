@@ -1,11 +1,12 @@
 $width: 360px;
 $rowheight: 30px;
 $maxheight: calc(var(--maxrows) * #{$rowheight});
-$sbarwidth: 3px;
+$sbarwidth: 5px;
 
-$gray: #ccc;
+$black: #2f2f2f;
+$gray: #d8d8d8;
 $blue: #3366cc;
-$red: #cc0033;
+$red: #ff0033;
 
 body {
 	width: $width;
@@ -35,12 +36,11 @@ section {
 
 	&::-webkit-scrollbar {
 		-webkit-appearance: none;
-		position: absolute;
 		width: $sbarwidth;
 	}
 
 	&::-webkit-scrollbar-thumb {
-		background-color: #333;
+		background-color: $black;
 	}
 
 	&::-webkit-scrollbar-track {
@@ -61,7 +61,7 @@ fieldset {
 		width: 100%;
 		padding: 0;
 		color: white;
-		background-color: rgba(0, 0, 0, 0.8);
+		background-color: $black;
 
 		span {
 			width: 32px;
@@ -69,8 +69,8 @@ fieldset {
 			display: inline-block;
 			vertical-align: top;
 			padding: 0;
-			font-size: 14px;
-			font-weight: 900;
+			font-size: 13.5px;
+			font-weight: 600;
 			line-height: $rowheight;
 			text-align: center;
 		}
@@ -78,13 +78,14 @@ fieldset {
 		label {
 			z-index: 100;
 			position: absolute;
-			right: 8px;
+			right: 10px;
 			display: inline-block;
-			z-index: 100;
+			z-index: 600;
 			font-size: 12px;
 			line-height: $rowheight;
-			font-weight: 600;
+			font-weight: 400;
 			padding-left: 8px;
+			opacity: 0.7;
 
 			i {
 				font-style: normal;
@@ -101,7 +102,7 @@ fieldset {
 		list-style: none;
 		padding: 0;
 		margin: 0;
-		transition: width 0.2s ease;
+		// transition: width 0.2s ease;
 
 		li {
 			width: 100%;
@@ -148,7 +149,7 @@ fieldset {
 				font-family: Sans-serif;
 				font-size: 13.5px;
 				line-height: $rowheight;
-				font-weight: 500;
+				font-weight: 400;
 				letter-spacing: -.010em;
 				white-space: nowrap;
 				text-overflow: ellipsis;
