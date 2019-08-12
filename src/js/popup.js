@@ -25,7 +25,7 @@ const hasClass = (el, cssClass) => {
 };
 
 let rowHeight = 30,
-	maxRows = 18 + 1;
+	maxRows = 14 + 1;
 
 document.documentElement.style.setProperty('--maxrows', maxRows);
 
@@ -85,7 +85,7 @@ chrome.windows.getAll({ populate: true }, windows => {
 		count.innerText = w.tabs.length;
 		label.appendChild(count);
 
-		label.innerHTML += (w.tabs.length > 1) ? ' tabs' : ' tab';
+		// label.innerHTML += (w.tabs.length > 1) ? ' tabs' : ' tab';
 		legend.appendChild(label);
 
 		// Append this window

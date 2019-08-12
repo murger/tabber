@@ -1,11 +1,12 @@
 $width: 360px;
 $rowheight: 30px;
 $maxheight: calc(var(--maxrows) * #{$rowheight});
-$sbarwidth: 5px;
+$sbarwidth: 6px;
 
 $black: #1c1c1c;
-$gray: #d8d8d8;
-$blue: #3366cc;
+$gray: #cacaca;
+$gray-dark: #4c4c4c;
+$blue: #0066cc;
 $red: #ff0033;
 
 body {
@@ -40,7 +41,7 @@ section {
 	}
 
 	&::-webkit-scrollbar-thumb {
-		background-color: $black;
+		background-color: $gray-dark;
 	}
 
 	&::-webkit-scrollbar-track {
@@ -55,13 +56,13 @@ fieldset {
 	max-width: 100%;
 
 	legend {
-		z-index: 10;
+		z-index: 100;
 		position: sticky;
 		top: 0px;
 		width: 100%;
 		padding: 0;
-		color: white;
-		background-color: $black;
+		color: $black;
+		background-color: $gray;
 
 		span {
 			width: 32px;
@@ -69,7 +70,7 @@ fieldset {
 			display: inline-block;
 			vertical-align: top;
 			padding: 0;
-			font-size: 13.5px;
+			font-size: 12px;
 			font-weight: 600;
 			line-height: $rowheight;
 			text-align: center;
@@ -78,23 +79,27 @@ fieldset {
 		label {
 			z-index: 100;
 			position: absolute;
-			right: 10px;
+			right: 6px;
 			display: inline-block;
 			z-index: 600;
 			font-size: 12px;
 			line-height: $rowheight;
-			font-weight: 400;
-			padding-left: 8px;
+			font-weight: 600;
 			opacity: 0.8;
 
 			i {
 				font-style: normal;
+				padding: 2px 5px;
+				color: $black;
+				border-radius: 8px;
+				background-color: white;
 			}
 		}
 	}
 
 	&.focused ul li.active {
-		background-color: $gray;
+		color: white;
+		background-color: $gray-dark;
 	}
 
 	ul {
@@ -106,7 +111,7 @@ fieldset {
 
 		li {
 			width: 100%;
-			color: black;
+			color: $black;
 			position: relative;
 			padding: 0;
 			padding-left: 34px;
