@@ -5,7 +5,7 @@ $sbarwidth: 6px;
 
 $black: #1c1c1c;
 $gray: #cacaca;
-$gray-dark: #4c4c4c;
+$gray-dark: #535353;
 $blue: #0066cc;
 $red: #ff0033;
 
@@ -61,8 +61,8 @@ fieldset {
 		top: 0px;
 		width: 100%;
 		padding: 0;
-		color: $black;
 		background-color: $gray;
+		// background-color: rgba(255, 255, 255, 0.9);
 
 		span {
 			width: 32px;
@@ -70,6 +70,7 @@ fieldset {
 			display: inline-block;
 			vertical-align: top;
 			padding: 0;
+			color: $black;
 			font-size: 12px;
 			font-weight: 600;
 			line-height: $rowheight;
@@ -81,18 +82,17 @@ fieldset {
 			position: absolute;
 			right: 6px;
 			display: inline-block;
-			z-index: 600;
-			font-size: 12px;
-			line-height: $rowheight;
-			font-weight: 600;
-			opacity: 0.8;
+			opacity: 1;
 
 			i {
+				font-size: 11px;
 				font-style: normal;
+				font-weight: 400;
+				line-height: $rowheight;
 				padding: 2px 5px;
-				color: $black;
-				border-radius: 8px;
-				background-color: white;
+				color: white;
+				border-radius: 6px;
+				background-color: $gray-dark;
 			}
 		}
 	}
