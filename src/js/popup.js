@@ -25,7 +25,7 @@ const hasClass = (el, cssClass) => {
 };
 
 let rowHeight = 30,
-	maxRows = 14 + 1;
+	maxRows = 18 + 1;
 
 document.documentElement.style.setProperty('--maxrows', maxRows);
 
@@ -78,7 +78,8 @@ chrome.windows.getAll({ populate: true }, windows => {
 		// console.log('Window #' + w.id, w);
 
 		// Window title
-		span.innerText = romanise(i + 1);
+		// span.innerText = romanise(i + 1);
+		span.innerText = '#' + (i + 1);
 		legend.appendChild(span);
 
 		// Tab count
