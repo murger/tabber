@@ -8,19 +8,18 @@
     "chrome"
   ],
   "watches": {
-    "build:js": "src/js/**",
+    "build:html": "src/*.html",
     "build:css": "src/sass/**",
-    "build:html": "src/*.html"
+    "build:js": "src/js/**"
   },
   "scripts": {
     "test": "echo 'Error: no test specified' && exit 1",
-    "clean": "rimraf dist",
-    "build:js": "npx rollup --config",
-    "build:css": "node-sass src/sass -o dist/css",
+    "build:clean": "rimraf dist",
     "build:html": "cpx 'src/*.html' dist",
-    "build": "npm-run-all clean build:*",
-    "watch": "rerun-script",
-    "start": "npm-run-all -s build watch"
+    "build:css": "node-sass src/sass -o dist/css",
+    "build:js": "npx rollup --config",
+    "build": "npm-run-all build:*",
+    "start": "npm run build && rerun-script"
   },
   "author": "Gürhan Mermer <gmermer@gmail.com>",
   "license": "AGPL-3.0",
