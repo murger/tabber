@@ -30,10 +30,7 @@ let rowHeight = 30,
 document.documentElement.style.setProperty('--maxrows', maxRows);
 
 const toggleScrollbarClass = () => {
-	setTimeout(() => {
-		list.className = (list.scrollHeight > maxRows * rowHeight) ? 'has-scrollbars' : '';
-		console.log(list.scrollHeight, list.className);
-	}, 5);
+	list.className = (list.scrollHeight > maxRows * rowHeight) ? 'has-scrollbars' : '';
 };
 
 // let bg = chrome.extension.getBackgroundPage();
@@ -160,7 +157,6 @@ chrome.windows.getAll({ populate: true }, windows => {
 					e.stopPropagation();
 					count.innerText = list.childElementCount;
 					chrome.tabs.remove(Number(tid));
-					toggleScrollbarClass();
 					// TODO: remove window if no tabs left
 				};
 			})(li, t.id);
@@ -173,6 +169,7 @@ chrome.windows.getAll({ populate: true }, windows => {
 });
 
 toggleScrollbarClass();
+setInterval(toggleScrollbarClass, 15);
 
 // chrome.sessions.restore();
 // chrome.sessions.getRecentlyClosed(function (sessions) {
