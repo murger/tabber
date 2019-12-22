@@ -4,8 +4,9 @@ $maxheight: calc(var(--maxrows) * #{$rowheight});
 $sbarwidth: 6px;
 
 $black: #1c1c1c;
-$gray: #e5e5e5;
-$gray-dark: #5a5a5a;
+$gray: #d8d8d8;
+$gray-mid: #ccc;
+$gray-dark: #4c4c4c;
 $blue: #0066cc;
 $red: #ff0033;
 
@@ -45,7 +46,7 @@ section {
 	}
 
 	&::-webkit-scrollbar-track {
-		background-color: $gray;
+		background-color: #f0f0f0;
 	}
 }
 
@@ -61,18 +62,32 @@ fieldset {
 		top: 0px;
 		width: 100%;
 		padding: 0;
-		background-color: $gray;
+		background-color: white;
 
 		span {
 			z-index: 50;
-			width: 33px;
+			width: 32px;
 			display: inline-block;
 			vertical-align: top;
-			color: $gray-dark;
-			font-size: 13.5px;
+			color: black;
+			font-size: 13px;
 			font-weight: 600;
 			line-height: $rowheight;
 			text-align: center;
+			// background-color: black;
+			// border-top-right-radius: 6px;
+			// border-bottom-right-radius: 6px;
+
+			&:after {
+				content: '';
+				height: 2px;
+				background-color: $gray-dark;
+				width: calc(100% - 34px - 8px);
+				display: block;
+				position: absolute;
+				top: 14px;
+				left: 34px;
+			}
 		}
 
 		label {
@@ -81,6 +96,9 @@ fieldset {
 			right: 8px;
 			display: inline-block;
 			opacity: 1;
+			color: black;
+			background-color: white;
+			padding-left: 10px;
 
 			i {
 				font-size: 12px;
@@ -88,7 +106,6 @@ fieldset {
 				font-weight: 600;
 				line-height: $rowheight;
 				// padding: 1px 4px;
-				color: $gray-dark;
 				border-radius: 4px;
 				// border: 1px solid $gray-dark;
 				// background-color: white;
@@ -99,6 +116,15 @@ fieldset {
 	&.focused ul li.active {
 		color: white;
 		background-color: $blue;
+
+		img {
+			filter: grayscale(0);
+			opacity: 1;
+		}
+
+		.close {
+			color: white;
+		}
 	}
 
 	ul {
@@ -123,9 +149,14 @@ fieldset {
 			}
 
 			&:hover, &:active {
-				color: white;
-				background-color: $gray-dark !important;
+				color: black;
+				background-color: $gray;
 				cursor: pointer;
+
+				img {
+					filter: grayscale(0);
+					opacity: 1;
+				}
 
 				p {
 					width: calc(100% - 12px - 24px);
@@ -168,7 +199,7 @@ fieldset {
 				height: $rowheight;
 				font-size: 18px;
 				line-height: $rowheight - 2px;
-				color: white;
+				color: black;
 				font-weight: 300;
 				text-align: center;
 				opacity: 0;
