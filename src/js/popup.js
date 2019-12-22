@@ -76,6 +76,7 @@ chrome.windows.getAll({ populate: true }, windows => {
 
 		// Window title
 		span.innerText = romanise(i + 1);
+		span.innerText = (i + 1);
 		// span.innerText = '#' + (i + 1);
 		legend.appendChild(span);
 
