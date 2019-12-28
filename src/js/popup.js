@@ -75,13 +75,14 @@ chrome.windows.getAll({ populate: true }, windows => {
 		// console.log('Window #' + w.id, w);
 
 		// Window title
-		span.innerText = romanise(i + 1);
-		span.innerText = (i + 1);
+		// span.innerText = romanise(i + 1);
+		span.innerText = String.fromCharCode(65 + i);
+		// span.innerText = (i + 1);
 		// span.innerText = '#' + (i + 1);
 		legend.appendChild(span);
 
 		// Tab count
-		count.innerText = w.tabs.length;
+		count.innerText += w.tabs.length;
 		label.appendChild(count);
 		label.innerHTML += (w.tabs.length > 1 ? ' tabs' : ' tab');
 		legend.appendChild(label);
