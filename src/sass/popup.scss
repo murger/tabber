@@ -95,6 +95,7 @@ fieldset {
 			color: $gray-mid;
 			// padding-left: 10px;
 			text-align: right;
+			font-size: 12px;
 
 			// &:before {
 			// 	content: '';
@@ -107,7 +108,6 @@ fieldset {
 			// }
 
 			i {
-				font-size: 12px;
 				font-style: normal;
 				font-weight: 400;
 				line-height: $rowheight + 0px;
@@ -153,8 +153,8 @@ fieldset {
 				}
 
 				p {
-					font-weight: 600;
-					opacity: 1;
+					font-weight: 600 !important;
+					// opacity: 1;
 				}
 			}
 
@@ -170,7 +170,7 @@ fieldset {
 
 				p {
 					width: calc(100% - 12px - 24px);
-					// font-weight: 600;
+					font-weight: 500;
 					opacity: 1;
 				}
 
@@ -188,7 +188,7 @@ fieldset {
 				height: 16px;
 				transform: translateY(-50%);
 				filter: grayscale(1);
-				opacity: 0.5;
+				// opacity: 0.35;
 			}
 
 			p {
@@ -204,7 +204,7 @@ fieldset {
 				letter-spacing: -.010em;
 				white-space: nowrap;
 				text-overflow: ellipsis;
-				// opacity: 0.5;
+				opacity: 0.8;
 			}
 
 			.close {
