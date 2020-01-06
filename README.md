@@ -4,4 +4,4 @@ Bring the list-based tab management back to Chrome — easily navigate between w
 
 Install for Chrome (or Brave, Edge, etc...) here → https://chrome.google.com/webstore/detail/ndlhjecpfgdkgiicepacjckfalljheck
 
-[![tabber.png](https://i.postimg.cc/3wkw7WSy/tabber.png)](https://postimg.cc/f3hsfWhZ)
+[![tabber.png](https://i.postimg.cc/vxT1BKJm/tabber.png)]
